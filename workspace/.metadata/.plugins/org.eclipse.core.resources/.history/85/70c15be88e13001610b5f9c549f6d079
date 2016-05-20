@@ -1,0 +1,34 @@
+package Ex2;
+
+import Ex1.Vetor;
+
+public class Independente {
+	private static void mexer(Vetor i) {
+		int b = 20;
+		try {
+			i.dividePorA(30);
+			
+			try {
+				i.dividePorA(30);
+				i.dividePorA(b);
+			} catch (ArithmeticException e) {
+				System.out.println("Dividiu por 0" + e);
+				i.setA(1);
+			}
+
+		} catch (NullPointerException e) {
+			System.out.println("Olha o erro maaais famoso aqui " + e);
+			Vetor j = new Vetor();
+			i = j;
+		}
+
+	}
+
+	public static void main(String args[]) {
+		Vetor i = new Vetor();
+		i = null;
+		mexer(i);
+		mexer(i);
+
+	}
+}

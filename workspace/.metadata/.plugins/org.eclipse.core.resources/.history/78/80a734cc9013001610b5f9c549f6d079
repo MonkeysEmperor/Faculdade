@@ -1,0 +1,42 @@
+package Ex2;
+
+import Ex1.Vetor;
+
+public class Independente {
+	private static void mexer(Vetor[] v) {
+		int b = 20;
+		int i = 2;
+		try {
+			v[2].dividePorA(b);
+
+		} catch (NullPointerException e) {
+			System.out.println("Olha o erro maaais famoso aqui " + e);
+			return;
+
+		} catch (ArithmeticException e) {
+			System.out.println("Dividiu por 0 " + e);
+			v[i].setA(1);
+			return;
+		} catch (ArrayIndexOutOfBoundsException e){
+			System.out.println("Fora do tamanho do vetor" + e);
+			i--;
+			return;
+		}
+
+		System.out.println("Sem erros!");
+	}
+
+	public static void main(String args[]) {
+		Vetor[] i = new Vetor[2];
+		mexer(i); //Da primeira vez tem que ser o erro de null pointer exception
+		
+		for (int j = 0; j < i.length; j++)
+		{
+			i[j] = new Vetor();
+		}
+		
+		mexer(i); //Nessa segunda vez, o erro é na divisão por zero
+		mexer(i); //Aqui já roda sem erros
+
+	}
+}

@@ -1,0 +1,11 @@
+package Ex2;
+import Ex1.Vetor;
+
+public class Independente {
+	private int a = 10;
+	public static void main (String args[])
+	{
+		Vetor i = new Vetor();
+		i.a = 20;
+	}
+}

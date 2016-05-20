@@ -1,0 +1,23 @@
+package Ex2;
+
+class Conta {
+	public static void main(String args[]) {
+		int den = 0, num = 20, indice = 3;
+		int c[] = { 1 };
+		try { // Indicador do trecho crítico
+			int res = num / den;
+			try {
+				c[indice] = res;
+			} catch (ArrayIndexOutOfBoundsException e) { // Recuperação da
+															// exceção de
+															// estouro
+				System.out.println("Estourou o índice"); // de índice do vetor
+				indice = 0;
+			}
+		} catch (ArithmeticException e) { // Recuperação da exceção aritmética
+			System.out.println("Dividiu por zero!");
+			den = 1;
+		}
+		// Continuação do programa
+	}
+}
