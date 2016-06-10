@@ -1,1 +1,0 @@
-Testando tempo de escrita no terminal e nos arquivos
